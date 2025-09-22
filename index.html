@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz día Miss Pato</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fffbe6;
+      overflow: hidden;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 2;
+      color: #ffcc00;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    .flower {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url("https://i.ibb.co/1bPg3WN/flower.png") no-repeat center/cover;
+      top: -50px;
+      animation: fall linear forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.3;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Feliz día Miss Pato ❤️</h1>
+
+  <script>
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = 3 + Math.random() * 4 + "s"; 
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 7000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>
